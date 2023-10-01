@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\prueba.entidades\prueba.Entidad.csproj" />
+    <ProjectReference Include="..\prueba.Repositorio\prueba.Repositorio.csproj" />
+  </ItemGroup>
+
+</Project>
