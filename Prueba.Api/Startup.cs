@@ -41,6 +41,13 @@ namespace Prueba.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Prueba.Api", Version = "v1" });
             });
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin",
+                    builder => builder.WithOrigins("http://localhost:4200")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +59,7 @@ namespace Prueba.Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Prueba.Api v1"));
             }
+            app.UseCors("AllowOrigin");
 
             app.UseHttpsRedirection();
 
